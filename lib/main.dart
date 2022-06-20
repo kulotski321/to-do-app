@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/presentation/pages/all_task_tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,27 +28,18 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
-
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'All',
-      style: optionStyle,
-    ),
-    Text(
-      'Complete',
-      style: optionStyle,
-    ),
-    Text(
-      'Incomplete',
-      style: optionStyle,
-    ),
-  ];
+  PageController pageController = PageController();
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+    pageController.jumpToPage(index);
+  }
+
+  void _onPageChanged(int page) {
+    setState(() {
+      _selectedIndex = page;
     });
   }
 
@@ -57,29 +49,33 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: const Text('To Do App'),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: PageView(
+        controller: pageController,
+        onPageChanged: _onPageChanged,
+        children: [
+          AllTaskTab(),
+          AllTaskTab(),
+          AllTaskTab(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.note),
+            icon: Icon(Icons.home),
             label: 'All',
-            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.check),
             label: 'Complete',
-            backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.incomplete_circle),
             label: 'Incomplete',
-            backgroundColor: Colors.purple,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );
