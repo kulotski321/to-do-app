@@ -9,7 +9,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   TaskBloc() : super(const TaskState()) {
     on<AddTask>(_onAddTask);
     on<UpdateTask>(_onUpdateTask);
-    // on<DeleteTask>(_onDeleteTask);
+    on<DeleteTask>(_onDeleteTask);
   }
 
   void _onAddTask(AddTask event, Emitter<TaskState> emit) {
@@ -31,5 +31,12 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     emit(TaskState(allTasks: allTask));
   }
 
-  // void _onDeleteTask(AddTask event, Emitter<TaskState> emit) {}
+  void _onDeleteTask(DeleteTask event, Emitter<TaskState> emit) {
+    final state = this.state;
+    final task = event.task;
+
+    List<Task> allTask = List.from(state.allTasks)..remove(task);
+
+    emit(TaskState(allTasks: allTask));
+  }
 }
