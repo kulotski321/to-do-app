@@ -36,7 +36,6 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (context) => SingleChildScrollView(
               child: Container(
-                // padding: const EdgeInsets.all(4.0),
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: Column(

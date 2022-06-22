@@ -14,11 +14,13 @@ class TaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: ListView.builder(
-            itemCount: taskList.length,
-            itemBuilder: ((context, index) {
-              var task = taskList[index];
-              return TaskWidget(title: task.title);
-            })));
+      child: ListView.builder(
+        itemCount: taskList.length,
+        itemBuilder: ((context, index) {
+          var task = taskList[index];
+          return TaskWidget(task: task);
+        }),
+      ),
+    );
   }
 }

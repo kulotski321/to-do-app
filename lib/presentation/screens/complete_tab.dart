@@ -25,7 +25,7 @@ class _CompleteTabState extends State<CompleteTab> {
             itemCount: widget.tasksList.length,
             itemBuilder: ((context, index) {
               var task = widget.tasksList[index];
-              return TaskWidget(title: task.title);
+              return TaskWidget(task: task);
             })));
   }
 }
