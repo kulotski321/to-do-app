@@ -39,54 +39,53 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Add a new task',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    TextField(
-                      controller: textEditingController,
-                      decoration: const InputDecoration(
-                        label: Text('Task name'),
-                        border: OutlineInputBorder(),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 12,
                       ),
-                      autofocus: true,
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                            textEditingController.clear();
-                          },
-                          child: const Text('cancel'),
+                      TextField(
+                        controller: textEditingController,
+                        decoration: const InputDecoration(
+                          label: Text('Add a new task'),
+                          border: OutlineInputBorder(),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            var uuid = const Uuid();
-                            var newTask = Task(
-                              id: uuid.v4(),
-                              title: textEditingController.text,
-                            );
-                            context
-                                .read<TaskBloc>()
-                                .add(AddTask(task: newTask));
-                            Navigator.pop(context);
-                            textEditingController.clear();
-                          },
-                          child: const Text('Add'),
-                        ),
-                      ],
-                    ),
-                  ],
+                        autofocus: true,
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              textEditingController.clear();
+                            },
+                            child: const Text('cancel'),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              var uuid = const Uuid();
+                              var newTask = Task(
+                                id: uuid.v4(),
+                                title: textEditingController.text,
+                              );
+                              context
+                                  .read<TaskBloc>()
+                                  .add(AddTask(task: newTask));
+                              Navigator.pop(context);
+                              textEditingController.clear();
+                            },
+                            child: const Text('Add'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ));
