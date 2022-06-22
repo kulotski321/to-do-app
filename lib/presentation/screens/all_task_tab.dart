@@ -5,15 +5,12 @@ import 'package:to_do_app/data/task_model.dart';
 import '../widgets/task_list.dart';
 
 class AllTaskTab extends StatefulWidget {
-  final List<Task> tasksList = [
-    Task(title: 'task 1'),
-    Task(title: 'task 2'),
-    Task(title: 'task 3'),
-    Task(title: 'task 4'),
-    Task(title: 'task 5'),
-  ];
+  final List<Task> tasksList;
 
-  AllTaskTab({Key? key}) : super(key: key);
+  const AllTaskTab({
+    Key? key,
+    required this.tasksList,
+  }) : super(key: key);
 
   @override
   State<AllTaskTab> createState() => _AllTaskTabState();
