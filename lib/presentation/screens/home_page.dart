@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/presentation/pages/all_task_tab.dart';
-import 'package:to_do_app/presentation/pages/complete_tab.dart';
-import 'package:to_do_app/presentation/pages/incomplete_tab.dart';
+import 'package:to_do_app/presentation/screens/all_task_tab.dart';
+import 'package:to_do_app/presentation/screens/complete_tab.dart';
+import 'package:to_do_app/presentation/screens/incomplete_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/data/task_model.dart';
-import 'package:to_do_app/presentation/widgets/task_widget.dart';
+import 'package:to_do_app/presentation/widgets/task.dart';
 
 class IncompleteTab extends StatefulWidget {
   final List<Task> tasksList = [

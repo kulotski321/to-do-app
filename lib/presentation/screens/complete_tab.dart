@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:to_do_app/data/task_model.dart';
-import 'package:to_do_app/presentation/widgets/task_widget.dart';
+import 'package:to_do_app/presentation/widgets/task.dart';
 
-class AllTaskTab extends StatefulWidget {
+class CompleteTab extends StatefulWidget {
   final List<Task> tasksList = [
     Task(title: 'task 1'),
     Task(title: 'task 2'),
@@ -12,13 +11,13 @@ class AllTaskTab extends StatefulWidget {
     Task(title: 'task 5'),
   ];
 
-  AllTaskTab({Key? key}) : super(key: key);
+  CompleteTab({Key? key}) : super(key: key);
 
   @override
-  State<AllTaskTab> createState() => _AllTaskTabState();
+  State<CompleteTab> createState() => _CompleteTabState();
 }
 
-class _AllTaskTabState extends State<AllTaskTab> {
+class _CompleteTabState extends State<CompleteTab> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
