@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'To Do App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: const HomePage(),
       ),

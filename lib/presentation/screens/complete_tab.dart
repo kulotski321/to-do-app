@@ -3,15 +3,9 @@ import 'package:to_do_app/data/task_model.dart';
 import 'package:to_do_app/presentation/widgets/task.dart';
 
 class CompleteTab extends StatefulWidget {
-  final List<Task> tasksList = [
-    Task(title: 'task 1'),
-    Task(title: 'task 2'),
-    Task(title: 'task 3'),
-    Task(title: 'task 4'),
-    Task(title: 'task 5'),
-  ];
+  final List<Task> tasksList;
 
-  CompleteTab({Key? key}) : super(key: key);
+  const CompleteTab({Key? key, required this.tasksList}) : super(key: key);
 
   @override
   State<CompleteTab> createState() => _CompleteTabState();

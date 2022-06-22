@@ -20,9 +20,8 @@ class _TaskWidgetState extends State<TaskWidget> {
       value: widget.task.isCompleted,
       secondary: GestureDetector(
         child: const Icon(Icons.delete),
-        onTap: () {
-          context.read<TaskBloc>().add(DeleteTask(task: widget.task));
-        },
+        onTap: () =>
+            context.read<TaskBloc>().add(DeleteTask(task: widget.task)),
       ),
       onChanged: (value) {
         context.read<TaskBloc>().add(UpdateTask(task: widget.task));

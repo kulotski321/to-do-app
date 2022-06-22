@@ -92,7 +92,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return BlocBuilder<TaskBloc, TaskState>(
       builder: (context, state) {
-        List<Task> tasksList = state.allTasks;
+        List<Task> allTasksList = state.allTasks;
+        List<Task> completedTasksList = state.completedTasks;
+        List<Task> incompleteTasksList = state.incompletetasks;
         return Scaffold(
           appBar: AppBar(
             title: const Text('To Do App'),
@@ -102,10 +104,14 @@ class _HomePageState extends State<HomePage> {
             onPageChanged: _onPageChanged,
             children: [
               AllTaskTab(
-                tasksList: tasksList,
+                tasksList: allTasksList,
               ),
-              CompleteTab(),
-              IncompleteTab(),
+              CompleteTab(
+                tasksList: completedTasksList,
+              ),
+              IncompleteTab(
+                tasksList: incompleteTasksList,
+              ),
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
