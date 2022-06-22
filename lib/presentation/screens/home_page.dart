@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/presentation/screens/all_task_tab.dart';
 import 'package:to_do_app/presentation/screens/complete_tab.dart';
 import 'package:to_do_app/presentation/screens/incomplete_tab.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../blocs/bloc_exports.dart';
 import '../../data/task_model.dart';
@@ -70,8 +71,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            var newTask =
-                                Task(title: textEditingController.text);
+                            var uuid = const Uuid();
+                            var newTask = Task(
+                              id: uuid.v4(),
+                              title: textEditingController.text,
+                            );
                             context
                                 .read<TaskBloc>()
                                 .add(AddTask(task: newTask));
