@@ -10,7 +10,6 @@ environment:
 
 dependencies:
   flutter_bloc: ^8.0.1
-  bloc_test: ^9.0.3
   equatable: ^2.0.3
   uuid: ^3.0.6
   flutter:
@@ -21,6 +20,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   test: ^1.21.0
+  bloc_test: ^9.0.3
+  mocktail: ^0.3.0
 
   flutter_lints: ^2.0.0
 flutter:
