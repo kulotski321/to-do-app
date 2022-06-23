@@ -2,10 +2,10 @@
 
 A simple flutter To-do app with bloc architecture and unit tests included.
 
-![fig. 1](https://drive.google.com/file/d/1LxJfoIxGiL4OyrsgdhcYUF1qk_JJeQpz/view?usp=sharing)
-![fig. 2](https://drive.google.com/file/d/1zgtsD0toKoTjPcdsSklly8S3igqVcXTN/view?usp=sharing)
-![fig. 3](https://drive.google.com/file/d/15rmRvEV1holxpicev8TC6UPgQOfsEu8v/view?usp=sharing)
-![fig. 4](https://drive.google.com/file/d/1UjF7PHCe0ZABwBjIXrI-ZzmArGMv2xWl/view?usp=sharing)
+![fig. 1](https://i.imgur.com/VZeybh0.jpg)
+![fig. 2](https://i.imgur.com/84Krp7T.jpg)
+![fig. 3](https://i.imgur.com/405ILJX.jpg)
+![fig. 4](https://i.imgur.com/xSZdcSe.jpg)
 
 ## Getting started
 
@@ -15,22 +15,16 @@ A simple flutter To-do app with bloc architecture and unit tests included.
 -   Flutter supported IDE : [Android Studio](https://developer.android.com/studio/?gclid=CjwKCAjww5r8BRB6EiwArcckC9mqLVIFNliLHoUsqIriqS83INgG0rDwHU6Iiq1y7_BkZ2sUVFsz5BoCBSMQAvD_BwE&gclsrc=aw.ds) or [VS Code](https://code.visualstudio.com/download)
 
 ### Setting-up
-
-Git clone repository
-`
+```bash
+# git clone repository
 $ git clone https://github.com/kulotski321/to-do-app.git
-`
 
+# cd to directory
+$ cd to_do_app/
 
-cd to directory
-`
-cd to_do_app/
-`
-
-Install dependencies
-`
+# Install dependencies
 $ flutter pub get
-`
+```
 
 ### Running Tests
 
