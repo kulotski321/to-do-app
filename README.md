@@ -29,7 +29,14 @@ $ flutter pub get
 ### Running Tests
 
 Test are located in the `test` folder and can be run with the command:
-`$ flutter test`
+```bash
+$ flutter test
+```
 
+###### Short Reflection about this coding challenge:
+
+> Initially, I thought of implementing the exercise using provider pattern but due to some limitations I decided to use bloc architecture that I am more familiar with instead. I also spent a bit of time re-learning what bloc architecture is and the things that's new.
+
+> The most challenging part of this exercise for me was creating the unit tests for the bloc as I have little to no experience with it except writing simple unit tests.
 
 
