@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   PageController pageController = PageController();
   TextEditingController textEditingController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,55 +37,67 @@ class _HomePageState extends State<HomePage> {
     showModalBottomSheet(
         context: context,
         builder: (context) => SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextField(
-                        controller: textEditingController,
-                        decoration: const InputDecoration(
-                          label: Text('Add a new task'),
-                          border: OutlineInputBorder(),
+              child: Form(
+                key: _formKey,
+                child: Container(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 12,
                         ),
-                        autofocus: true,
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                              textEditingController.clear();
-                            },
-                            child: const Text('cancel'),
+                        TextFormField(
+                          controller: textEditingController,
+                          decoration: const InputDecoration(
+                            label: Text('Add a new task'),
+                            border: OutlineInputBorder(),
                           ),
-                          ElevatedButton(
-                            onPressed: () {
-                              var uuid = const Uuid();
-                              var newTask = Task(
-                                id: uuid.v4(),
-                                title: textEditingController.text,
-                              );
-                              context
-                                  .read<TaskBloc>()
-                                  .add(AddTask(task: newTask));
-                              Navigator.pop(context);
-                              textEditingController.clear();
-                            },
-                            child: const Text('Add'),
-                          ),
-                        ],
-                      ),
-                    ],
+                          autofocus: true,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter a task title';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                                textEditingController.clear();
+                              },
+                              child: const Text('cancel'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                if (!_formKey.currentState!.validate()) {
+                                  return;
+                                }
+                                var uuid = const Uuid();
+                                var newTask = Task(
+                                  id: uuid.v4(),
+                                  title: textEditingController.text,
+                                );
+                                context
+                                    .read<TaskBloc>()
+                                    .add(AddTask(task: newTask));
+                                Navigator.pop(context);
+                                textEditingController.clear();
+                              },
+                              child: const Text('Add'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
