@@ -14,6 +14,8 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
 
   void _onAddTask(AddTask event, Emitter<TaskState> emit) {
     final state = this.state;
+
+    // Add the new task to allTasks and incompleteTasks lists
     emit(TaskState(
       allTasks: List.from(state.allTasks)..add(event.task),
       completedTasks: List.from(state.completedTasks),
@@ -29,21 +31,36 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     List<Task> completedTasks = state.completedTasks;
     List<Task> incompleteTasks = state.incompletetasks;
 
+    // Remove the old task in allTasks list
     final int index = state.allTasks.indexOf(task);
     allTasks = List.from(state.allTasks)..remove(task);
 
     task.isCompleted == false
         ? {
+            // Updating [isCompleted] to TRUE
+
+            // Insert updated task in allTasks list with new isCompleted status
             allTasks.insert(index, task.copyWith(isCompleted: true)),
+
+            // Add updated task to completedTasks list
             completedTasks = List.from(state.completedTasks)
               ..add(
                 task.copyWith(isCompleted: true),
               ),
+
+            // Remove from incompleteTasks list
             incompleteTasks = List.from(state.incompletetasks)..remove(task),
           }
         : {
+            // Updating [isCompleted] to FALSE
+
+            // Insert updated task in allTask list with new isCompleted status
             allTasks.insert(index, task.copyWith(isCompleted: false)),
+
+            // Remove from completedTasks list
             completedTasks = List.from(state.completedTasks)..remove(task),
+
+            // Add updated task to incompleteTasks list
             incompleteTasks = List.from(state.incompletetasks)
               ..add(
                 task.copyWith(isCompleted: false),
@@ -61,6 +78,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     final state = this.state;
     final task = event.task;
 
+    // Remove deleted task from all lists
     List<Task> allTasks = List.from(state.allTasks)..remove(task);
     List<Task> completedTasks = List.from(state.completedTasks)..remove(task);
     List<Task> incompleteTasks = List.from(state.incompletetasks)..remove(task);
