@@ -1,16 +1,37 @@
 # to_do_app
 
-A new Flutter project.
+A simple flutter To-do app with bloc architecture and unit tests included.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Getting started
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Pre-requisites
+-   [Flutter](https://flutter.dev/docs/get-started/install?gclid=CjwKCAjww5r8BRB6EiwArcckC3FuGP-ng1LTsRH5utGNC57EsZ_KiW6B___xvOTKvsZMH9EkkUFzMBoCHoEQAvD_BwE&gclsrc=aw.ds) is installed in your system.
+-   Flutter supported IDE : [Android Studio](https://developer.android.com/studio/?gclid=CjwKCAjww5r8BRB6EiwArcckC9mqLVIFNliLHoUsqIriqS83INgG0rDwHU6Iiq1y7_BkZ2sUVFsz5BoCBSMQAvD_BwE&gclsrc=aw.ds) or [VS Code](https://code.visualstudio.com/download)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Setting-up
+
+> Git clone repository
+`
+$ git clone https://github.com/kulotski321/to-do-app.git
+`
+
+
+> cd to directory
+`
+cd to_do_app/
+`
+
+> Install dependencies
+`
+$ flutter pub get
+`
+
+### Running Tests
+
+> Test are located in the `test` folder and can be run with the command:
+`$ flutter test`
+
+
+
