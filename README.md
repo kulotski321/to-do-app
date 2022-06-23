@@ -2,6 +2,10 @@
 
 A simple flutter To-do app with bloc architecture and unit tests included.
 
+![fig. 1](https://drive.google.com/file/d/1LxJfoIxGiL4OyrsgdhcYUF1qk_JJeQpz/view?usp=sharing)
+![fig. 2](https://drive.google.com/file/d/1zgtsD0toKoTjPcdsSklly8S3igqVcXTN/view?usp=sharing)
+![fig. 3](https://drive.google.com/file/d/15rmRvEV1holxpicev8TC6UPgQOfsEu8v/view?usp=sharing)
+![fig. 4](https://drive.google.com/file/d/1UjF7PHCe0ZABwBjIXrI-ZzmArGMv2xWl/view?usp=sharing)
 
 ## Getting started
 
@@ -12,25 +16,25 @@ A simple flutter To-do app with bloc architecture and unit tests included.
 
 ### Setting-up
 
-> Git clone repository
+Git clone repository
 `
 $ git clone https://github.com/kulotski321/to-do-app.git
 `
 
 
-> cd to directory
+cd to directory
 `
 cd to_do_app/
 `
 
-> Install dependencies
+Install dependencies
 `
 $ flutter pub get
 `
 
 ### Running Tests
 
-> Test are located in the `test` folder and can be run with the command:
+Test are located in the `test` folder and can be run with the command:
 `$ flutter test`
 
 
